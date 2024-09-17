@@ -2,16 +2,128 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Protein Tracker</title>
+    <title>Food Tracker</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Daily Protein Tracker</h1>
-    <div id="goal-container">
-        <button id="change-goal-button">Change Daily Goal</button>
-        <p>Your daily protein goal: <span id="daily-goal"></span> servings</p>
+    <!-- Login/Register Section -->
+    <div id="auth-container">
+        <h1>Welcome to Food Tracker</h1>
+        <div id="login-form">
+            <h2>Login</h2>
+            <input type="text" id="login-username" placeholder="Username">
+            <input type="password" id="login-password" placeholder="Password">
+            <button id="login-button">Login</button>
+            <p>Don't have an account? <a href="#" id="show-register">Register here</a></p>
+        </div>
+        <div id="register-form" style="display: none;">
+            <h2>Register</h2>
+            <input type="text" id="register-username" placeholder="Username">
+            <input type="password" id="register-password" placeholder="Password">
+            <button id="register-button">Register</button>
+            <p>Already have an account? <a href="#" id="show-login">Login here</a></p>
+        </div>
     </div>
-    <div id="grid-container"></div>
+
+    <!-- Main App Content -->
+    <div id="app-container" style="display: none;">
+        <h1>Daily Food Tracker</h1>
+        <button id="logout-button">Logout</button>
+
+        <!-- Goal Setting -->
+        <div id="goal-container">
+            <h2>Set Your Daily Goals</h2>
+            <div id="goals-form">
+                <div class="goal-input">
+                    <label for="protein-goal">Protein (13g per serving):</label>
+                    <input type="number" id="protein-goal" min="0">
+                </div>
+                <!-- Add inputs for other categories -->
+                <div class="goal-input">
+                    <label for="cereals-goal">Cereals:</label>
+                    <input type="number" id="cereals-goal" min="0">
+                </div>
+                <div class="goal-input">
+                    <label for="fruits-goal">Fruits:</label>
+                    <input type="number" id="fruits-goal" min="0">
+                </div>
+                <div class="goal-input">
+                    <label for="dairy-goal">Dairy:</label>
+                    <input type="number" id="dairy-goal" min="0">
+                </div>
+                <div class="goal-input">
+                    <label for="healthy-fats-goal">Healthy Fats:</label>
+                    <input type="number" id="healthy-fats-goal" min="0">
+                </div>
+                <div class="goal-input">
+                    <label for="oil-goal">Oil:</label>
+                    <input type="number" id="oil-goal" min="0">
+                </div>
+                <div class="goal-input">
+                    <label for="vegetables-goal">Vegetables:</label>
+                    <input type="number" id="vegetables-goal" min="0">
+                </div>
+                <button id="save-goals-button">Save Goals</button>
+            </div>
+        </div>
+
+        <!-- Tracking Grids -->
+        <div id="tracking-container">
+            <!-- Each category will have its own grid -->
+            <div class="category">
+                <h3>Protein</h3>
+                <div class="grid-container" id="protein-grid"></div>
+            </div>
+            <!-- Repeat for other categories -->
+            <div class="category">
+                <h3>Cereals</h3>
+                <div class="grid-container" id="cereals-grid"></div>
+            </div>
+            <div class="category">
+                <h3>Fruits</h3>
+                <div class="grid-container" id="fruits-grid"></div>
+            </div>
+            <div class="category">
+                <h3>Dairy</h3>
+                <div class="grid-container" id="dairy-grid"></div>
+            </div>
+            <div class="category">
+                <h3>Healthy Fats</h3>
+                <div class="grid-container" id="healthy-fats-grid"></div>
+            </div>
+            <div class="category">
+                <h3>Oil</h3>
+                <div class="grid-container" id="oil-grid"></div>
+            </div>
+            <div class="category">
+                <h3>Vegetables</h3>
+                <div class="grid-container" id="vegetables-grid"></div>
+            </div>
+        </div>
+
+        <!-- Historical Data -->
+        <div id="history-container">
+            <h2>Your Progress History</h2>
+            <table id="history-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Protein</th>
+                        <th>Cereals</th>
+                        <th>Fruits</th>
+                        <th>Dairy</th>
+                        <th>Healthy Fats</th>
+                        <th>Oil</th>
+                        <th>Vegetables</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Historical data will be appended here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
